@@ -5,10 +5,15 @@ Added the ability to attach files to SMS/MMS for Android only. For iOS see my ot
 
 Tips:
 1) Read the forked repo for the basic usage.
+
 2) For android setting of file path, use the cordova file plugin (https://github.com/apache/cordova-plugin-file) with the file set in the externalRootDirectory (for permissions purposes).
+
     a) So in javascript use a filePath like: var filePath = cordova.file.externalRootDirectory + "myFile.wav";
+    
     b) When invoking the plugin inside javascript (using above example), fileName would be "myFile.wav" and fileType would be "audio/wav". For other types, use the corresponding values (e.g. "myFile.jpg" would have a fileType of "image/jpg").
+    
 3) To bypass the attachment and send text directly, leave intent: "". (i.e. set intent to null).
+
 4) Different versions of android might have quirks. Specifically, early versions of Android < 4, might not send attachment. Also, android is quirky about attaching certain file types (e.g. .wav seem fine, but .amr files don't seem to work).
 
 Full example in javascript for audio wav attachment would be:
