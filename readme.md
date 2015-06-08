@@ -4,6 +4,7 @@ Plugin forked from: https://github.com/cordova-sms/cordova-sms-plugin.
 Added the ability to attach files to SMS/MMS for Android only. For iOS see my other forked plugin.
 
 Tips:
+
 1) Read the forked repo for the basic usage.
 
 2) For android setting of file path, use the cordova file plugin (https://github.com/apache/cordova-plugin-file) with the file set in the externalRootDirectory (for permissions purposes).
