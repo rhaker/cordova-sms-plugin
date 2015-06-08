@@ -1,8 +1,32 @@
 #Cordova SMS Plugin - With Android Attachments (no ios)
 
-Plugin forked from: https://github.com/cordova-sms/cordova-sms-plugin. Added the ability to attach files to SMS/MMS for Android only. For iOS see my other forked plugin.
+Plugin forked from: https://github.com/cordova-sms/cordova-sms-plugin.
+Added the ability to attach files to SMS/MMS for Android only. For iOS see my other forked plugin.
 
-Cross-platform plugin for Cordova / PhoneGap to to easily send SMS. Available for **Android**, **iOS**, and **Windows Phone 8**.
+Tips:
+1) Read the forked repo for the basic usage.
+2) For android setting of file path, use the cordova file plugin (https://github.com/apache/cordova-plugin-file) with the file set in the externalRootDirectory (for permissions purposes).
+    a) So in javascript use a filePath like: var filePath = cordova.file.externalRootDirectory + "myFile.wav";
+    b) When invoking the plugin inside javascript (using above example), fileName would be "myFile.wav" and fileType would be "audio/wav". For other types, use the corresponding values (e.g. "myFile.jpg" would have a fileType of "image/jpg").
+3) To bypass the attachment and send text directly, leave intent: "". (i.e. set intent to null).
+4) Different versions of android might have quirks. Specifically, early versions of Android < 4, might not send attachment. Also, android is quirky about attaching certain file types (e.g. .wav seem fine, but .amr files don't seem to work).
+
+Full example in javascript for audio wav attachment would be:
+
+                    var contactPhoneNumber = "12131231234";
+                    var fileName = "fileAudio.wav";
+                    var fileType = "audio/wav";
+					var message = "I recorded an audio message for you.";
+					var options = {
+						replaceLineBreaks: false, // true to replace \n by a new line, false by default
+						android: {
+							intent: 'INTENT'  // leave as "" (null) to send directly (doesn't work with attachment)							
+						}
+					};
+
+					var smsSuccessAndroid = function () { // do nothing };
+					var smsErrorAndroid = function (e) { alert("fail"); };
+					sms.send(contactPhoneNumber, message, fileName, fileType, options, smsSuccessAndroid, smsErrorAndroid);
 
 This plugin works with Cordova 3.x and 4.x version.
 
