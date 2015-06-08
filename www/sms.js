@@ -15,7 +15,7 @@ function convertPhoneToArray(phone) {
 }
 
 
-sms.send = function(phone, message, audioFile, options, success, failure) {
+sms.send = function(phone, message, audioFile, fileType, options, success, failure) {
     // parsing phone numbers
     phone = convertPhoneToArray(phone);
 
@@ -38,7 +38,7 @@ sms.send = function(phone, message, audioFile, options, success, failure) {
         success,
         failure,
         'Sms',
-        'send', [phone, message, audioFile, androidIntent, replaceLineBreaks]
+        'send', [phone, message, audioFile, fileType, androidIntent, replaceLineBreaks]
     );
 };
 
