@@ -1,4 +1,6 @@
-#Cordova SMS Plugin
+#Cordova SMS Plugin - With Android Attachments (no ios)
+
+Plugin forked from: https://github.com/cordova-sms/cordova-sms-plugin. Added the ability to attach files to SMS/MMS for Android only. For iOS see my other forked plugin.
 
 Cross-platform plugin for Cordova / PhoneGap to to easily send SMS. Available for **Android**, **iOS**, and **Windows Phone 8**.
 
@@ -8,7 +10,7 @@ This plugin works with Cordova 3.x and 4.x version.
 
 Using the Cordova CLI, run:
 
-    cordova plugin add https://github.com/cordova-sms/cordova-sms-plugin.git
+    cordova plugin add https://github.com/rhaker/cordova-sms-plugin.git
 
 ##Using the plugin
 HTML
