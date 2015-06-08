@@ -42,7 +42,7 @@ Using the Cordova CLI, run:
 
     cordova plugin add https://github.com/rhaker/cordova-sms-plugin.git
 
-##Using the plugin
+##Using the plugin - THIS IS OLD. BASIC FORKED USAGE EXAMPLE.
 HTML
 
     <input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
@@ -69,6 +69,7 @@ Javascript
 
             var success = function () { alert('Message sent successfully'); };
             var error = function (e) { alert('Message Failed:' + e); };
+            // THIS IS THE BASIC FORKED EXAMPLE. SEE ABOVE FOR THE EXAMPLE WITH ATTACHMENT.
             sms.send(number, message, options, success, error);
         }
     };
